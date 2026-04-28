@@ -16,3 +16,11 @@ Usage case: A user wants to evaluate whether a political commentator's statement
 #
 # Data
 
+#
+# Models
+The system used several pre-trained, specialized models and workflow strategies to provide comprehensive analysis of social media post. Some of the pre-trained models used include Vader, TextBlob, and distilBert. These are to analyze social media, extract noun phrases and binary sentiment classification. The supervised statistical models used include least squares regression line and mathematical modeling; these include finding the relationship between the sentiment score and the S&P 500 market directions and to determine if a person is reliable “predictor” for said market movement. The workflow and its strategies were designed through a multi-dimensional approach; first using Lexical Density to count specific “emotional” words via Vader, Contextual Sentiment to understand the polarity/confidence of the statement by DistilBert, and Keyword Filtering to filter for “S&P500” relevance before the data is inputted into the matrix (via TextBlob). There was very few fine-tuning performed as the model uses an already fined-tuned of SST-2. For prompting, the system did not use Generative AI prompting, but rather programmatic parsing. 
+
+#
+# Evaluation
+In evaluating this system, for its quantitative metrics it evaluates the influencer’s signal effectiveness using standard statistical measures derived from text sentiment and market direction correlation. This is accomplished through find the coefficient of determination measuring the how much variance in the S&P500 direction can be explained by the influencer. If a strong relationship, given a score >0.7, if weak, <0.3. Then it finds the correlation coefficient to find the strength and direction of the linear relationship; positive slope equals the person being a “leading indicator” and vise versa for a negative slope. Thirdly, the system uses lexical density to filter out posts that lack actionable importance. Possible errors analyzed includes any sarcasm and slang which DistilBert and Vader can misinterpret and contextual blindness in which a post can have a neutral score while containing high-impact views. 
+
